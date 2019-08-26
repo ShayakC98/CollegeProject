@@ -5,15 +5,19 @@ class Player
 		this.x = 200;
 		this.y = 500;
 		this.r = 25;
+
+		this.state = 2;
 	}
 	moveLeft(){
-		if(this.x >= 200){
+		if(this.state >= 2){
+			this.state -= 1;
 			this.x -= 100;
 		}
 	}
 	moveRight(){
-		if(this.x <= 200){
+		if(this.state <= 2){
 			this.x += 100;
+			this.state += 1;
 		}
 	}
 	isCollision(obj){
