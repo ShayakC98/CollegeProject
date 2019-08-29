@@ -3,15 +3,18 @@
 Our Q learning model has 3 possible states:
 Left, Middle, Right
 
+Our model also has one input. If there is an object on the line
+the player is on.
+
 Now for each state our model has 3 possible actions:
 To go either Left, or to go  Right, or to stay in current position
 
-so the Shape of our Q-table will be of 3 x 3
+so the Shape of our Q-table will be of 4 x 3
 
-		Left 	Middle 	Right
-Left    [val 	val    	val
-Stay     val	val 	val
-Right    val	val 	val]
+		Left 	Middle 	Right	ObjectPresent
+Left    [val 	val    	val 	val
+Stay     val	val 	val 	val
+Right    val	val 	val 	val]
 
 The Update Rule for Q learning model:
 Q[state, action] = Q[state, action] + lr * (reward + gamma * max(Q[new_state, :]) — Q[state, action])
@@ -29,9 +32,9 @@ Max: max() is taking the maximum of the future reward and applying it to the rew
 
 // Basic initializations
 
-Q_table = [[0, 0, 0],
-		   [0, 0, 0],
-		   [0, 0, 0]];
+Q_table = [[0, 0, 0, 0],
+		   [0, 0, 0, 0],
+		   [0, 0, 0, 0]];
 
 var lr = 0.01;
 var epsilon = 0.2;

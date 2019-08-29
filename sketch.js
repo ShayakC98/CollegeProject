@@ -57,6 +57,7 @@ class ColObject
 var player;
 var obstacle;
 var score;
+var isObject;
 
 function setup()
 {
@@ -64,6 +65,7 @@ function setup()
 	obstacle = [];
 	obstacle.push(new ColObject(2));
 	score = 0;
+	isObject = false;
 
     createCanvas(800, 600);
     background(255);
@@ -83,7 +85,14 @@ function update()
     	obstacle.pop();
 		obstacle.push(new ColObject(round(random(1,4))));
 		score -= 1;
-    } 
+    }
+
+    for(i = 0; i < obstacle.length; i++){
+    	if(obstacle[i].x == player.x){
+    		isObject = true;
+    	}
+    }
+
     fill(0);
     textSize(24);
     text("score : " + score, 600, 20);
@@ -95,6 +104,10 @@ function draw()
 {
     clear();
     background(255);
+
+    line(100, 0, 100, 600);
+    line(200, 0, 200, 600);
+    line(300, 0, 300, 600);
 
     update();
 }
