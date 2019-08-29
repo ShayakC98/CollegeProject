@@ -27,6 +27,10 @@ Reward: reward is the value received after completing a certain action at a give
 
 Max: max() is taking the maximum of the future reward and applying it to the reward for the current state. What this does is impact the current action by the possible future reward. We’re allocating future reward to current actions to help the agent select the highest return action at any given state.
 
+
+We use memoization to store the values of decisions at every time step after getting rewards for our actions.
+This technique significantly improves our model because it is able to predict better actions for lesser inputs.
+
 */
 
 
